@@ -1,3 +1,7 @@
+import string
+import secrets
+
+
 def check_length(password):
     length = len(password)
     if length < 7 :
@@ -33,7 +37,6 @@ def password_ratead(password):
     for i in password:
         if i.isupper():
             count_upper+=1
-    print(count_upper)
     if count_upper>=3:
         password_rating+=20
     count_symbol = 0
@@ -47,3 +50,32 @@ def password_ratead(password):
     return password_rating
 
 
+def generate_password(length=8):
+    if length < 8 :
+        raise Exception('your password is short')
+    lowercase = string.ascii_lowercase
+    uppercase = string.ascii_uppercase
+    digit = string.digits
+    symbol = "!@#$%^&*()?"
+    allchar = lowercase+uppercase+digit+symbol
+    
+    password =[
+        secrets.choice(lowercase),
+        secrets.choice(uppercase),
+        secrets.choice(digit),
+        secrets.choice(symbol),
+        "_"
+    ]
+    
+    
+    for _ in range(length-4):
+        password.append(secrets.choice(allchar))
+        
+    secrets.SystemRandom().shuffle(password)
+    return ''.join(password)
+
+
+    
+    
+    
+    
