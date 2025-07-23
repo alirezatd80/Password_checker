@@ -75,7 +75,27 @@ def generate_password(length=8):
     return ''.join(password)
 
 
-    
+def main():
+    print('Welcome there') 
+    order = 0
+    while(order !=3):
+        print('1 for checkpassword\n2 for generatepassword\n3 for exit\n')
+        order = int((input('your order : ')))
+        match(order):
+            case 1 :
+                password = input('enter your password : ')
+                print(password_ratead(password))
+            case 2 :
+                print(f'*** your password : {generate_password(int(input('enter length : ')))} ***')
+            case 3 :
+                exit()
+            case _ :
+                print('number is not correct')
+                
+if __name__ == "__main__":
+    main()
+            
+                
     
     
     
