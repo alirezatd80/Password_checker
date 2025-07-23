@@ -7,5 +7,11 @@ def test_checklength():
     with pytest.raises(Exception):
         password_checker.check_length('')
         password_checker.check_length('121d')
+
+
+def test_litter():
+    assert password_checker.check_litter('alidsa333e') == False
+    assert password_checker.check_litter('asdasdmSssa') == True
+    assert password_checker.check_litter('12314353453') == False
     
     
