@@ -23,3 +23,27 @@ def check_symbol(password):
     return result
 
 
+def password_ratead(password):
+    password_rating = 30
+    if not(check_length(password) and check_litter(password) and check_number(password) and check_symbol(password)):
+        raise Exception('your password not good')
+    if len(password)>15:
+        password_rating+=20
+    count_upper = 0 
+    for i in password:
+        if i.isupper():
+            count_upper+=1
+    print(count_upper)
+    if count_upper>=3:
+        password_rating+=20
+    count_symbol = 0
+    for i in password:
+        if check_symbol(i):
+            count_symbol+=1
+    if count_symbol>1:
+        password_rating+=20
+    if "_" in password:
+        password_rating+=10
+    return password_rating
+
+
