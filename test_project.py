@@ -19,3 +19,11 @@ def test_digit():
     assert password_checker.check_number('asfadsfadsf') == False
     assert password_checker.check_number('123123123') == True
     
+def test_symbol():
+    assert password_checker.check_symbol('adsfadsfwe@') == True
+    assert password_checker.check_symbol('??????????') == True
+    assert password_checker.check_symbol('!cds2f3232f') == True
+    assert password_checker.check_symbol('adsfadsfwe') == False
+    
+    
+    
