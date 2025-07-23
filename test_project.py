@@ -25,5 +25,20 @@ def test_symbol():
     assert password_checker.check_symbol('!cds2f3232f') == True
     assert password_checker.check_symbol('adsfadsfwe') == False
     
+def test_ratin():
+    with pytest.raises(Exception):
+        password_checker.password_ratead('asdsda')
+        password_checker.password_ratead('13488083Alo')
+        password_checker.password_ratead('13488083Alo4fr')
+        password_checker.password_ratead('13488083?lo4fr')
+        
+    assert password_checker.password_ratead("13488083Alo?") == 30
+    assert password_checker.password_ratead("13488083Alo??") ==50
+    assert password_checker.password_ratead("13488083AloER??") ==70
+    assert password_checker.password_ratead("13488083Alo??RT1") ==90
+    assert password_checker.password_ratead("13488083Al_o??RT1") ==100
+    
+    
+    
     
     
