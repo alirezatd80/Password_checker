@@ -5,7 +5,7 @@ import secrets
 def check_length(password):
     length = len(password)
     if length < 7 :
-        print('your password is short')
+        print('**your password is short**')
         return False
     return True
 
@@ -31,7 +31,7 @@ def check_symbol(password):
 def password_ratead(password):
     password_rating = 30
     if not(check_length(password) and check_litter(password) and check_number(password) and check_symbol(password)):
-        print('password not good')
+        print('**password not good**')
         return 0
     if len(password)>15:
         password_rating+=20
