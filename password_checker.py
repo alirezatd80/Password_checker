@@ -13,5 +13,8 @@ def check_litter(password):
         return True
     return False
 
-print(check_litter('12314353453'))
+def check_number(password):
+    result = any(char.isdigit() for char in password)
+    return result
+
 
