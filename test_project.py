@@ -4,9 +4,8 @@ import password_checker
 
 def test_checklength():
     assert password_checker.check_length('12345678') == True
-    with pytest.raises(Exception):
-        password_checker.check_length('')
-        password_checker.check_length('121d')
+    assert password_checker.check_length('') == False
+    assert password_checker.check_length('121d') == False
 
 
 def test_litter():
@@ -26,12 +25,11 @@ def test_symbol():
     assert password_checker.check_symbol('adsfadsfwe') == False
     
 def test_ratin():
-    with pytest.raises(Exception):
-        password_checker.password_ratead('asdsda')
-        password_checker.password_ratead('13488083Alo')
-        password_checker.password_ratead('13488083Alo4fr')
-        password_checker.password_ratead('13488083?lo4fr')
-        
+    
+    assert  password_checker.password_ratead('asdsda') == 0
+    assert  password_checker.password_ratead('13488083Alo') == 0 
+    assert  password_checker.password_ratead('13488083Alo4fr') == 0 
+    assert  password_checker.password_ratead('13488083?lo4fr') == 0
     assert password_checker.password_ratead("13488083Alo?") == 30
     assert password_checker.password_ratead("13488083Alo??") ==50
     assert password_checker.password_ratead("13488083AloER??") ==70
