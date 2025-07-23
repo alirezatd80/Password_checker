@@ -17,4 +17,9 @@ def check_number(password):
     result = any(char.isdigit() for char in password)
     return result
 
+def check_symbol(password):
+    symbols = '!@#$%^&*()?'
+    result = any(char in symbols for char in password)
+    return result
+
 
